@@ -8,6 +8,12 @@ const compress = require("webpack/lib/optimize/UglifyJsPlugin"); //压缩
 const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin"); //thunk
 const DedupePlugin = require("webpack/lib/optimize/DedupePlugin"); //多文件
 const ImageminPlugin = require('imagemin-webpack-plugin').default;//图片压缩
+const childProcess = require('child_process');
+const extractLess = new ExtractTextPlugin({
+    allChunks:true,
+    filename: "../css/[name]-less.css"  //如果带路径则在此路径下生成
+});
+var NODE_ENV = process.env.NODE_ENV;
 const config = {
     entry:{
         main:path.join(__dirname,"/public/javascripts/mian.js"),
@@ -34,30 +40,26 @@ const config = {
             },
             {
                 test: /\.less$/,
-                 use: [{
-                    loader: "style-loader" // creates style nodes from JS strings
-                }, {
-                    loader: "css-loader" // translates CSS into CommonJS
-                }, {
-                    loader: "less-loader" // compiles Less to CSS
-                }] 
-               /*  use: extractLess.extract({
+                //use:[{loader:"css-loader"},{loader:"less-loader"},{loader: "style-loader"}]
+                use: extractLess.extract({
                     use: [{
                         loader: "css-loader",
-                         options:{
+                        options:{
                             minimize: true,
                             sourceMap: true
-                        } 
+                        }
                     }, {
                         loader: "less-loader"
                     }]
-                }) */
+                })
             }
+
         ]
     },
     plugins: [
+        extractLess,
         new CommonsChunkPlugin({
-            name: "chunk",
+            name: "vendor",
             minChunks:2
         }),
         /*  new compress({
@@ -69,7 +71,7 @@ const config = {
          }
          }), */
         new DedupePlugin({
-            'process.env': {NODE_ENV: '"production"'}
+            'process.env': {NODE_ENV}
         }),
         new ImageminPlugin({
             //disable: process.env.NODE_ENV !== 'production', // Disable during development
@@ -77,7 +79,27 @@ const config = {
                 quality: '95-100'
             }
         })
+
     ]
 
 };
+if(NODE_ENV=="production"){
+    config.plugins.push(new compress({
+        output: {
+            comments: false,  // remove all comments
+        },
+        compress: {
+            warnings: false
+        }
+    }))
+}
+
+var options = {
+    env: {
+        NODE_ENV,
+    },
+    debug:true
+};
+
+
 module.exports = config;
