@@ -18,7 +18,7 @@ class RotatePlay extends Component{
     //模拟数据获取，具体参见yuanyang项目
     Ajax_getcurrent(){
          let num = parseInt(Math.random()*8)
-         let da={errorcode:200,data:[{id:num,txt:`${num}等奖`}]};
+         let da=[{id:num,txt:`${num}等奖`}];
         return da;
     }
     async Get_Angle(){

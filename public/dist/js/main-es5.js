@@ -5626,7 +5626,7 @@ var RotatePlay = function (_Component) {
         key: "Ajax_getcurrent",
         value: function Ajax_getcurrent() {
             var num = parseInt(Math.random() * 8);
-            var da = { errorcode: 200, data: [{ id: num, txt: num + "\u7B49\u5956" }] };
+            var da = [{ id: num, txt: num + "\u7B49\u5956" }];
             return da;
         }
     }, {
