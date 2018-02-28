@@ -1,0 +1,26 @@
+.m-rotatePlay{
+  width:400px;height:400px;position: relative;top:0;left:0; margin:0px auto;
+  .m-rotateDom{
+      width:100%;height:100%;border:#088 solid 1px;position: relative;top:0;left:0;
+      transform: rotate(0deg);
+      border-radius:50%;overflow: hidden;
+          li{
+            list-style: none;
+            position: absolute;;
+            top:0;left:0;text-align: center;
+            width:100%;height:100%;
+            transform-origin:50% 200px;
+            
+      }
+      transition:transform 6s ease;
+  }
+  .m-rotatePoint{
+    width:100px;height:100px;position: absolute;top:50%;left:50%;border:#ccc solid 1px;background:rgb(211, 139, 44);
+    transform:translateX(-50%) translateY(-50%);text-align: center;line-height:100px;color:#fff;border-radius:50%;cursor: pointer;
+    &:before{
+      content:"";position: absolute;top:0;left:50%;width:20px;height:40px;background: burlywood;transform:translateX(-50%) translateY(-100%);
+      clip-path: polygon(11px 0px, 0px 41px, 21px 41px);border:#ccc solid 1px;
+    }
+  }
+    
+}
