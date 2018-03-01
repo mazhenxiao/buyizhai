@@ -3,7 +3,8 @@
 
 
 ### 插件简介 ###
-大转盘
+* 大转盘
+
 ~~~ HTML
  <RotatePlay startList={startList} />
 ~~~
@@ -78,6 +79,27 @@ class RotatePlay extends Component{
     }
 }
 export default RotatePlay;
+~~~
+
+* 洗牌算法
+
+~~~ javascript
+  let Arr = [1,2,3,4,5]
+  Arr.shuffle(); // [6, 3, 2, 1, 4, 5]
+~~~
+> 源码
+~~~ javascript
+ Array.prototype.shuffle=function(){
+      let arr= this,len = arr.length-1;
+      for(var i = 0 ;i<=len;i++){
+          let random = parseInt(Math.random()*(len-i));
+          let current= arr[i];
+          let item = arr[random];
+          arr[random] = current;
+          arr[i]=item;
+      }
+      return arr;
+   }
 ~~~
 
 

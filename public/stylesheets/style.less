@@ -1,5 +1,12 @@
 @f:100rem;
-html{color:#2b2b2b;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;height:100%}
+@f100:100%;
+.funCol(@col:12,@i:1) when(@i<=@col){
+    .col-@{i}{
+        flex:0 0 100%/@i;overflow: hidden;
+    }
+    .funCol(12,@i+1);
+}
+html{color:#2b2b2b;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;height:100%;min-width:640/@f;}
 html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}
 html,body{font-family:sans-serif;min-height:100%}
 body{font-size:12/@f;}
@@ -21,4 +28,9 @@ a:hover{text-decoration:underline}
 ins,a{text-decoration:none;} 
 .am-activity-indicator.am-activity-indicator-toast{
     background: rgba(200,200,200,0.5);
+}
+.row{
+    display: flex; flex-wrap: wrap;
+    &>*{justify-content:flex-start;}
+    .funCol();
 }
