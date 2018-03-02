@@ -1,14 +1,31 @@
-@f:100rem;
-@f100:100%;
+@import "fun.less";
+@import "font/iconfont.css";
 .funCol(@col:12,@i:1) when(@i<=@col){
     .col-@{i}{
-        flex:0 0 100%/@i;overflow: hidden;
+        flex:0 0 100%/12*@i;
+        overflow: hidden;
     }
     .funCol(12,@i+1);
 }
-html{color:#2b2b2b;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;height:100%;min-width:640/@f;}
-html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}
-html,body{font-family:sans-serif;min-height:100%}
+.funPad(@i:1)when(@i<=5){
+    @s:@i*10;
+    .padL@{s}{ padding-left:@s/@f;}
+    .padR@{s}{padding-right:@s/@f;}
+    .padB@{s}{padding-bottom:@s/@f;}
+    .padT@{s}{ padding-top:@s/@f;}
+    .mgL@{s}{ margin-left:@s/@f}
+    .mgR@{s}{ margin-right:@s/@f}
+    .mgT@{s}{ margin-top:@s/@f}
+    .mgB@{s}{ margin-bottom:@s/@f}
+    .funPad(@i+1);
+}
+.funWidth(@i:80)when(@i<220){
+    .ipt@{i}{ width:@i/@f}
+    .funWidth(@i+10);
+}
+html{color:#3b3b3b;background:@bg;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;height:100%;min-width:640/@f;}
+html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;box-sizing: border-box;}
+html,body{font-family:sans-serif;height:100%}
 body{font-size:12/@f;}
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}
 input,select,textarea{font-size:100%}
@@ -29,8 +46,16 @@ ins,a{text-decoration:none;}
 .am-activity-indicator.am-activity-indicator-toast{
     background: rgba(200,200,200,0.5);
 }
+
 .row{
     display: flex; flex-wrap: wrap;
     &>*{justify-content:flex-start;}
     .funCol();
+}
+.Ph100{height:100%}
+.P100{ width:100%}
+.funPad();
+.funWidth();
+.byz-content{
+    height:100%;
 }

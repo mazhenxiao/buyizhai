@@ -1,4 +1,39 @@
-@f:100rem;
+@import "../../../../stylesheets/fun.less";
+//头部
 .byz-header{
-    height:52/@f;background: yellowgreen;
+    height:52/@f;background:@bgh; 
+    .byz-search{ 
+        h5{ text-align:center;font-size:20/@f;color: #fff;font-weight: normal;height:100%;line-height:52/@f;cursor:pointer}
+    }
+    .byz-searchDom{
+        p{
+            margin-top:3.5/@f;background:@bgh2;position: relative;top:0;left:0;padding-right:50/@f;
+            input{ background-color:transparent;border:none;padding:10/@f 5/@f; color:@color}
+            &:hover{
+              background:@bgh3;  
+            }
+        }
+        .search-icon{position:absolute;top:0/@f;right:0/@f;height:45/@f;width:50/@f;text-align:center;line-height:45/@f;}
+    }
+    .byz-login{ text-align: center;color:#fff;height:100%;line-height:52/@f;cursor:pointer}
+}
+//底部
+.byz-footer{
+     position:fixed;bottom:0;left:0;width:100%;
+    .byz-footer-box{ background:@bgh;height:80/@f;position: relative;z-index:5;
+        clip-path: polygon(0% 100%,50% 0%,100% 100%,0% 100%);}
+    .byz-addbtn{
+        width:80/@f;height:80/@f;background:@bgh2;box-shadow:@color 0 0 3/@f;
+        position: absolute;top:0;left:50%;z-index:10;
+        transform:translateY(-30%) translateX(-50%);
+        border-radius:50%;
+        text-align:center;line-height:80/@f;
+        transition:transform 100ms ease; 
+        i{ font-size:35/@f;color:@color}  
+    }
+   
+}
+.oh{ overflow: hidden}
+.byz-content{
+    padding-bottom:(80+52)/@f;
 }

@@ -6,7 +6,7 @@ class Index extends Component{
 
     }
     render(){
-         return <article className="m-routerMain">
+         return <article className="m-routerMain Ph100">
              <SNCRouter />
          </article>
     }

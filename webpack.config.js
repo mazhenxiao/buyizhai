@@ -49,7 +49,11 @@ const config = {
                             sourceMap: true
                         }
                     }, {
-                        loader: "less-loader"
+                        loader: "less-loader",
+                        options:{
+                            minimize: true,
+                            sourceMap: true
+                        }
                     }]
                 })
             }

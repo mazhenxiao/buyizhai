@@ -38,11 +38,16 @@ class Canvas extends Component{
         this.state.list.forEach(arg=>{
            let img = new Image();
                img.src= arg;
+               this.local.list.push({name:arg.split("/").pop(),img:""})
                img.on("load",event=>{
-                    let th = event.target;
-                    console.log(this.local.d2);
-                    debugger
+                    let th = event.target,src=img.src.split("/").pop();
+                   
+                    //console.log(this.local.d2);
+                     
                },false);
+               img.on("error",event=>{
+                    let th = event.target;
+               })
                
         })
    }    

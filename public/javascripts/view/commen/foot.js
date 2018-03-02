@@ -5,7 +5,8 @@ class Foot extends Component{
     }
     render(){
         return <footer className="byz-footer">
-            新增
+            <div className="byz-addbtn"><i className="icon iconfont icon-add" /></div>
+            <div className="byz-footer-box"></div> 
         </footer>
     }
 }
