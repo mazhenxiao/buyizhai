@@ -1,5 +1,6 @@
 @import "fun.less";
 @import "font/iconfont.css";
+@import "animate.min.css";
 .funCol(@col:12,@i:1) when(@i<=@col){
     .col-@{i}{
         flex:0 0 100%/12*@i;
@@ -57,5 +58,5 @@ ins,a{text-decoration:none;}
 .funPad();
 .funWidth();
 .byz-content{
-    height:100%;
+    height:100%;overflow:hidden;overflow-y:auto;
 }

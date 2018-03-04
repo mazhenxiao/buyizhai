@@ -4,4 +4,9 @@
 @bgh:#8e7c81;
 @bgh2:#af9d9d;
 @bgh3:#dcc7c7;
+@bgh4:#f5d5be;
 @color:#5b5b5b;
+@ac1:cubic-bezier(0, 1.34, 0.32, 2.02);
+.action(@type:width,@time:100ms,@ac:ease){
+    transition:@type @time @ac;
+}

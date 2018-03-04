@@ -18,22 +18,28 @@
     .byz-login{ text-align: center;color:#fff;height:100%;line-height:52/@f;cursor:pointer}
 }
 //底部
-.byz-footer{
+ .byz-footer{
      position:fixed;bottom:0;left:0;width:100%;
     .byz-footer-box{ background:@bgh;height:80/@f;position: relative;z-index:5;
-        clip-path: polygon(0% 100%,50% 0%,100% 100%,0% 100%);}
+       // clip-path: polygon(0% 100%,50% 0%,100% 100%,0% 100%);
+    }
     .byz-addbtn{
-        width:80/@f;height:80/@f;background:@bgh2;box-shadow:@color 0 0 3/@f;
-        position: absolute;top:0;left:50%;z-index:10;
-        transform:translateY(-30%) translateX(-50%);
-        border-radius:50%;
+        width:80/@f;height:80/@f;background:@bgh2;
+        //box-shadow:@color 0 0 3/@f;
+        z-index:10;
+        position: absolute;top:0;left:50%;margin-left:-40/@f;
         text-align:center;line-height:80/@f;
-        transition:transform 100ms ease; 
-        i{ font-size:35/@f;color:@color}  
+       // transition:transform 100ms ease; 
+        i{ font-size:35/@f;color:@bgh4}  
+        cursor: pointer;
+        &:active{
+            transform: scale(1.2);
+            .action(transform,50ms,@ac1);
+        }
     }
    
 }
 .oh{ overflow: hidden}
 .byz-content{
     padding-bottom:(80+52)/@f;
-}
+} 
