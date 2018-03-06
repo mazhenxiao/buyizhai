@@ -19,8 +19,8 @@
 }
 //底部
  .byz-footer{
-     position:fixed;bottom:0;left:0;width:100%;
-    .byz-footer-box{ background:@bgh;height:80/@f;position: relative;z-index:5;
+     position:fixed;bottom:0;left:0;width:100%;height:80/@f;background:@bgh;
+    .byz-footer-box{ height:100%;position: relative;z-index:5;
        // clip-path: polygon(0% 100%,50% 0%,100% 100%,0% 100%);
     }
     .byz-addbtn{
@@ -43,3 +43,45 @@
 .byz-content{
     padding-bottom:(80+52)/@f;
 } 
+//title
+.byz-Title{
+    height:53/@f;background:@bgh;font-size:25/@f;position: relative;top:0;left:0;overflow: hidden;
+    h3{ color:@bgh4;font-weight: normal;text-align: center;margin:0 60/@f;line-height:53/@f;}
+    button{float:right;background: transparent;border:none;margin-right:5/@f;
+        i{ font-size:45/@f;background:transparent;color:@bgh4}
+        
+    }
+
+}
+//表单
+.from{
+    input,textarea,label{ vertical-align: top;display:block;resize:none;font-size:16/@f;border:@bgh2 solid 1px}
+    .label{ width:120/@f;text-align: right;float:left;padding-top:8/@f;padding-right:10/@f;}
+    .content{display: block;margin-left:120/@f;padding-right:120/@f}
+    input,textarea{width:100%;padding:10/@f 3/@f; background:rgba(255,255,255,0.5);margin-right:120/@f};
+    textarea{ height:300/@f}
+    .error{display: block;clear:both;min-height:30/@f;padding:5/@f;padding-left:120/@f}
+}
+//上传
+.byz-photoadd{
+    overflow: hidden;cursor: pointer;
+    border:@bgh dotted 1px; width:100/@f;height:100/@f;position: relative;top:0;left:0;display:inline-block;background:hsla(0, 16%, 84%, 0.5);
+    &:before{ content:" ";width:3/@f;height:60%;position:absolute;top:50%;left:50%;background:@bgh;transform:translateX(-50%) translateY(-50%)}
+    &:after{content:" ";width:60%;height:3/@f;position:absolute;top:50%;left:50%;background:@bgh;transform:translateX(-50%) translateY(-50%)}
+    input{ zoom:5;opacity:0}
+    &:active{
+        background:@bgh4;transform:scale(1.2); transition:transform 50ms cubic-bezier(0,1.34,.32,2.02);
+
+    }
+  
+}
+.PhotoImageList{
+    ul.byz-Photo-list{ text-align:center;
+        li{
+          display: inline-block;
+          max-width:200/@f;max-height:100/@f;
+          overflow: hidden;
+          img{ width:200/@f}
+        }
+    }
+}

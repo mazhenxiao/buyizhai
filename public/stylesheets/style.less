@@ -10,6 +10,8 @@
 }
 .funPad(@i:1)when(@i<=5){
     @s:@i*10;
+    .pad@{s}{padding:@s/@f}
+    .mag@{s}{margin:@s/@f}
     .padL@{s}{ padding-left:@s/@f;}
     .padR@{s}{padding-right:@s/@f;}
     .padB@{s}{padding-bottom:@s/@f;}
@@ -60,3 +62,12 @@ ins,a{text-decoration:none;}
 .byz-content{
     height:100%;overflow:hidden;overflow-y:auto;
 }
+//BUTTON
+.btn{
+    min-width:80/@f;padding:15/@f 10/@f;border-radius:0;font-size:16/@f;font-weight: none;background:@bgh4;color:@color;border:@color2 solid 1px;border-radius:5/@f;color:@color2;
+}
+.submit{ min-width:120/@f}
+.Center{ text-align: center}
+.Lefrt{text-align: left}
+.Right{text-align: right}
+.null{ display: none;}

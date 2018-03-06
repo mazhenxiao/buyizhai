@@ -12,12 +12,17 @@ class ViewIndex extends Component{
         
     }
     Event_Click_AddTable=(ev,th)=>{
-        console.log(this);
-        console.log(ev.currentTarget)
-        console.log(th);
         this.setState({
-            add:this.state.add=="show"? "hide":"show"
+            add:"show"
         })
+    }
+    Add_onCancel=()=>{
+        this.setState({
+            add:"hide"
+        })
+    }
+    Add_onSubmit=()=>{
+        
     }
     render(){
         let {add}=this.state;
@@ -29,7 +34,7 @@ class ViewIndex extends Component{
             </section>
            <Foot click={this.Event_Click_AddTable} />
            
-            <Add animate={add}/>
+           {add=="show"&&<Add animate={add} onCancel={this.Add_onCancel} onSubmit={ this.Add_onSubmit} />} 
             
         </article> 
     }
